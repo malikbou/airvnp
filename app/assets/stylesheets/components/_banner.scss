@@ -1,0 +1,24 @@
+header {
+  height: 360px;
+  z-index: 10;
+}
+.header-banner {
+  background-color: #333;
+  background-image: url('https://www.atominteriors.com/wp-content/uploads/2017/11/lighting-ideabanner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100px;
+  opacity: 0.6;
+}
+
+header h1 {
+  color: rgb(12, 12, 12);
+  mix-blend-mode:hard-light;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 0 1rem;
+  position: absolute;
+  top: 3rem;
+  left: 1rem;
+}
