@@ -1,5 +1,12 @@
-<h3><%= @venue.name %></h3>
-<p><%= @venue.address %></p>
-<%= @venue.booked %>
-<%= @venue.capacity %>
-<%=  %>
+<div><h3><%= @venue.name %></h3>
+  <p><%= @venue.address %></p>
+  <%= @venue.booked %>
+  <%= @venue.capacity %>
+</div>
+<div>
+  <%= simple_form_for [@venue, @booking] do |f| %>
+    <%= f.input :start_date, html5: true %>
+    <%= f.input :end_date, html5: true %>
+    <%= f.button :submit, value: "Book now" %>
+  <% end %>
+</div>

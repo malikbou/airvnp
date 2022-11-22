@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  get "venues", to: "venues#index"
-  get "venues/new", to: "venues#new"
-  get "venues/:id", to: "venues#show", as: :venue
+  # get "venues", to: "venues#index"
+  # get "venues/new", to: "venues#new"
+  # get "venues/:id", to: "venues#show", as: :venue
+  # get "venues/:id/bookings/new", to: "venues/index"
+
+  resources :venues, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :bookings, only: [:new, :create, :destroy]
+  end
+  get "my_booking", to: "bookings#my_booking"
 end
