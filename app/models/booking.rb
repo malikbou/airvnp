@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :venue
-
-  validates :name, :address, presence: true
+  has_many :users
+  has_many :venues
 end
