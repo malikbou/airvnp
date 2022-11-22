@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "venues", to: "venues#index"
   get "venues/new", to: "venues#new"
+  post "venues", to: "venues#create"
   get "venues/:id", to: "venues#show", as: :venue
 end
