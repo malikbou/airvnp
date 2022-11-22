@@ -4,3 +4,6 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :capacity %>
+  
+<%= render "form", venue: @venue %>
+<%= link_to "Back to venues", venues_path %>
