@@ -1,3 +1,9 @@
 <h1> Create your venue page </h1>
+
+<%= simple_form_for [@venue] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :address %>
+  <%= f.input :capacity %>
+  
 <%= render "form", venue: @venue %>
 <%= link_to "Back to venues", venues_path %>
