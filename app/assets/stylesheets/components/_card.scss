@@ -51,7 +51,7 @@
 }
 .card1 {
   background: url("	https://images.otstatic.com/prod1/48262363/2/huge.jpg") center center no-repeat;
-  background-size: 300px;
+  background-size: cover;
 }
 .card1:hover {
   background: url("	https://images.otstatic.com/prod1/48262363/2/huge.jpg") left center no-repeat;
@@ -64,11 +64,11 @@
   opacity: 1;
 }
 .card2 {
-  background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") center center no-repeat;
-  background-size: 300px;
+  background: url("https://www.hot-dinners.com/images/stories/blog/2021/sessions/room1.jpg") center center no-repeat;
+  background-size: cover;
 }
 .card2:hover {
-  background: url("https://i.pinimg.com/originals/ee/85/08/ee850842e68cfcf6e3943c048f45c6d1.jpg") left center no-repeat;
+  background: url("https://www.hot-dinners.com/images/stories/blog/2021/sessions/room1.jpg") left center no-repeat;
   background-size: 600px;
 }
 .card2:hover h2 {
