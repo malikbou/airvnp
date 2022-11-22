@@ -9,20 +9,31 @@
 require 'faker'
 
 puts "Cleaning database..."
+
 Review.destroy_all
+puts "Destroyed reviews"
+
 Booking.destroy_all
+puts "Destroyed bookings"
+
 Venue.destroy_all
+puts "Destroyed venues"
+
+puts "Creating users..."
+user1 = {email: "admin@admin.com", password: "adminadmin"}
+user2 = {email: "daniela@cupcakes.com", password: "danielalovescupcakes"}
+user3 = {email: "gabriel@cookies.com", password: "gabriellovescookies"}
+user4 = {email: "chirantan@phones.com", password: "chirantanlovesphones"}
+user5 = {email: "malik@chocolate.com", password: "malikloveschocolate"}
+
+[user1, user2, user3, user4, user5].each do |attributes|
+  user = User.create!(attributes)
+  puts "Created #{user.email}"
+end
+puts "Finished users!"
+
 
 puts "Creating venues..."
-
-# t.string "name"
-# t.text "address"
-# t.integer "capacity"
-# t.boolean "booked"
-# t.bigint "user_id", null: false
-# t.datetime "created_at", null: false
-# t.datetime "updated_at", null: false
-# t.index ["user_id"], name: "index_venues_on_user_id"
 
 venue1 = {name: "The Old Qeens Head", address: Faker::Address.street_address, capacity: rand(5..30), booked: false, user_id: 1}
 venue2 = {name: "The Albion", address: Faker::Address.street_address, capacity: rand(5..30), booked: false, user_id: 1}
@@ -34,6 +45,5 @@ venue6 = {name: "Aures London", address: Faker::Address.street_address, capacity
 [venue1, venue2, venue3, venue4, venue5, venue6].each do |attributes|
   venue = Venue.create!(attributes)
   puts "Created #{venue.name}"
-
 end
-puts "Finished!"
+puts "Finished venues!"
