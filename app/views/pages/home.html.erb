@@ -6,8 +6,12 @@
             <div class="hero-box">
                <div class="container-title">
                   <div class="hero-text align-center container-box">
-                     <h1 class="h1-reserve">Reserve a venue now!</h1>
-                     <p>Lorem ipsum dolor sit are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <% if user_signed_in? %>
+                        <h1 id="venues"><%= link_to "See All Venues", venues_path%></h1>
+                      <% else %>
+                        <h1 class="h1-reserve">Reserve a venue now!</h1>
+                        <p>Lorem ipsum dolor sit are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                      <% end %>
                   </div>
                      <div class="input-line">
 
@@ -38,29 +42,3 @@
                </div>
             </div>
          </section>
- <!-- Destinations Section -->
-         <section class="section section-destination">
-            <!-- Title -->
-            <div class="section-title">
-               <div class="container-body">
-                  <h2 class="title">Explore our venues</h2>
-               </div>
-            </div>
-
-            <%= render "shared/card" %>
-
-            <div class="align-center">
-                  <a href="#" class="btn btn-default btn-load-destination"><span class="text">Explore our venues</span><i class="icon-spinner6"></i></a>
-            </div>
-
- <!-- Parallax Box -->
-         <div class="parallax-box">
-            <div class="container">
-               <div class="text align-center">
-                  <h1>Have your own venue?</h1>
-                  <p>navigare necesse est, vivere non est necesse</p>
-
-                  <a href="#" class="btn btn-special no-icon size-2x">Rent your venue</a>
-               </div>
-            </div>
-         </div>
