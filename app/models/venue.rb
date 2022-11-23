@@ -3,6 +3,5 @@ class Venue < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :name, :address, :capacity, presence: true
-  validates :name, :address, uniqueness: { case_sensitive: false }
   validates :capacity, numericality: { only_integer: true }
 end
