@@ -77,6 +77,34 @@
 .card2:hover .fa {
   opacity: 1;
 }
+.card3 {
+  background: url("https://images.unsplash.com/photo-1607329368288-5c2e884439df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80") center center no-repeat;
+  background-size: cover;
+}
+.card3:hover {
+  background: url("https://images.unsplash.com/photo-1607329368288-5c2e884439df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80") left center no-repeat;
+  background-size: 600px;
+}
+.card3:hover h2 {
+  opacity: 1;
+}
+.card3:hover .fa {
+  opacity: 1;
+}
+.card4 {
+  background: url("") center center no-repeat;
+  background-size: cover;
+}
+.card4:hover {
+  background: url("") left center no-repeat;
+  background-size: 600px;
+}
+.card4:hover h2 {
+  opacity: 1;
+}
+.card4:hover .fa {
+  opacity: 1;
+}
 h2 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #fff;

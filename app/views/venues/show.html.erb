@@ -3,6 +3,25 @@
   <%= @venue.booked %>
   <%= @venue.capacity %>
 </div>
+
+<div class="container">
+  <div class="card card3">
+    <div class="border">
+      <h2>Image 1</h2>
+    </div>
+  </div>
+  <div class="card card3" >
+    <div class="border">
+      <h2>Image 2</h2>
+    </div>
+  </div>
+  <div class="card card3">
+    <div class="border">
+      <h2>Image 3</h2>
+    </div>
+  </div>
+</div>
+
 <div>
   <%= simple_form_for [@venue, @booking] do |f| %>
     <%= f.input :start_date, html5: true %>
