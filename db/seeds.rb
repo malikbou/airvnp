@@ -50,10 +50,13 @@ venue6 = {name: "Aures London", address: "18 Leake St, London SE1 7NN", capacity
   puts "Created #{venue.name}"
 end
 
+photo_id = 0
 30.times do
-  attributes = {name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(5..30), image_url: "https://picsum.photos/800/1200", booked: false, user_id: 1}
+
+  attributes = {name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(5..30), image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false, user_id: 1}
   venue = Venue.create!(attributes)
-  puts "Created #{venue.name}"
+  puts "Created #{venue.name} with photo id #{photo_id}"
+  photo_id += 1
 end
 
 puts "Finished venues!"
