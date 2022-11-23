@@ -1,23 +1,26 @@
-<div><h3><%= @venue.name %></h3>
-  <p><%= @venue.address %></p>
-  <%= @venue.booked %>
-  <%= @venue.capacity %>
-</div>
+<div class="jumbotron">
+  <h3 class="display-4 text-primary"><%= @venue.name %></h3>
 
-<div class="container">
+<div>
+  <h4><%= @venue.address %></h4>
+  <h5 class="bg-info w-25 p-3">Booked: <%= @venue.booked %></h5>
+  <h5 class="bg-warning w-25 p-3">Capacity: <%= @venue.capacity %></h5>
+</div>
+</div>
+<div class="container" style="width: 18rem; height: 1rem;">
   <div class="card card3">
     <div class="border">
-      <h2>Image 1</h2>
+      <h2 style="color: gold;">Image 1</h2>
     </div>
   </div>
   <div class="card card3" >
     <div class="border">
-      <h2>Image 2</h2>
+      <h2 style="color: gold;">Image 2</h2>
     </div>
   </div>
   <div class="card card3">
     <div class="border">
-      <h2>Image 3</h2>
+      <h2 style="color: gold;">Image 3</h2>
     </div>
   </div>
 </div>
