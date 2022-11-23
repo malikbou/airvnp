@@ -1,7 +1,11 @@
-<%= simple_form_for(venue) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :capacity %>
-  <%= f.input :image_url %>
-  <%= f.submit %>
-<% end %>
+<div class="container-md col-md-4 col-md-offset-4">
+  <h1 class="new-h1">Your venue</h1>
+  <%= simple_form_for(venue) do |f| %>
+    <%= f.input :name, { placeholder: "Venue name"} %>
+    <%= f.input :address, { placeholder: "Venue address"} %>
+    <%= f.input :capacity, { placeholder: "Maximum guests"} %>
+    <%= f.input :image_url, { placeholder: "Add a picture"}  %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+  <%= link_to "Back to Venues", venues_path %>
+</div>
