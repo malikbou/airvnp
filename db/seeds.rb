@@ -35,15 +35,14 @@ user5 = {email: "malik@chocolate.com", password: "malikloveschocolate"}
 end
 puts "Finished users!"
 
-
 puts "Creating venues..."
 
-venue1 = {name: "The Old Qeens Head", address: "44 Essex Rd, London N1 8LN", capacity: rand(5..30), image_url: "https://lh3.googleusercontent.com/p/AF1QipPy7tIC7KNWmOX5xGhK45RuZ-CvxfDbGCdMXBJr=s1360-w1360-h1020", booked: false, user_id: 1}
-venue2 = {name: "The Albion", address: "10 Thornhill Rd, London N1 1HW", capacity: rand(5..30), image_url: "https://images.otstatic.com/prod1/48262363/2/huge.jpg", booked: false, user_id: 1}
-venue3 = {name: "Sessions Arts Club", address: "Old Sessions House, 24 Clerkenwell Grn, London EC1R 0NA", capacity: rand(5..30), image_url: "https://www.hot-dinners.com/images/stories/blog/2021/sessions/room1.jpg", booked: false, user_id: 1}
-venue4 = {name: "Hackney Town Hall", address: "Mare St, London E8 1EA", capacity: rand(5..30), image_url: "https://images.squarespace-cdn.com/content/v1/50992cbee4b0c49016e6d85c/1575293454716-DUG8NORFTU3RDG0FMSRN/Emma_Dean_180.jpg", booked: false, user_id: 1}
-venue5 = {name: "National Gallery", address: "Trafalgar Square, London WC2N 5DN", capacity: rand(5..30), image_url: "https://images.unsplash.com/photo-1654271166015-d87ab7097752?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1030&q=80", booked: false, user_id: 1}
-venue6 = {name: "Aures London", address: "18 Leake St, London SE1 7NN", capacity: rand(5..30), image_url: "https://cdn.venuescanner.com/photos/Lw4Nv/ff168fba81c870b1086a9a795430af83.jpg", booked: false, user_id: 1}
+venue1 = {name: "The Old Qeens Head", address: "44 Essex Rd, London N1 8LN", capacity: rand(5..30), image_url: "https://lh3.googleusercontent.com/p/AF1QipPy7tIC7KNWmOX5xGhK45RuZ-CvxfDbGCdMXBJr=s1360-w1360-h1020", booked: false, user_id: User.first.id}
+venue2 = {name: "The Albion", address: "10 Thornhill Rd, London N1 1HW", capacity: rand(5..30), image_url: "https://images.otstatic.com/prod1/48262363/2/huge.jpg", booked: false, user_id: User.first.id}
+venue3 = {name: "Sessions Arts Club", address: "Old Sessions House, 24 Clerkenwell Grn, London EC1R 0NA", capacity: rand(5..30), image_url: "https://www.hot-dinners.com/images/stories/blog/2021/sessions/room1.jpg", booked: false, user_id: User.first.id}
+venue4 = {name: "Hackney Town Hall", address: "Mare St, London E8 1EA", capacity: rand(5..30), image_url: "https://images.squarespace-cdn.com/content/v1/50992cbee4b0c49016e6d85c/1575293454716-DUG8NORFTU3RDG0FMSRN/Emma_Dean_180.jpg", booked: false, user_id: User.first.id}
+venue5 = {name: "National Gallery", address: "Trafalgar Square, London WC2N 5DN", capacity: rand(5..30), image_url: "https://images.unsplash.com/photo-1654271166015-d87ab7097752?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1030&q=80", booked: false, user_id: User.first.id}
+venue6 = {name: "Aures London", address: "18 Leake St, London SE1 7NN", capacity: rand(5..30), image_url: "https://cdn.venuescanner.com/photos/Lw4Nv/ff168fba81c870b1086a9a795430af83.jpg", booked: false, user_id: User.first.id}
 
 [venue1, venue2, venue3, venue4, venue5, venue6].each do |attributes|
   venue = Venue.create!(attributes)
@@ -53,7 +52,7 @@ end
 photo_id = 0
 30.times do
 
-  attributes = {name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(5..30), image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false, user_id: 1}
+  attributes = {name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(5..30), image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false, user_id: User.first.id}
   venue = Venue.create!(attributes)
   puts "Created #{venue.name} with photo id #{photo_id}"
   photo_id += 1
@@ -61,8 +60,9 @@ end
 
 puts "Finished venues!"
 
+# REMEMBER TO MAKE VENUES DYNAMIC WITH RANDOM DATA
 10.times do
-  attributes = { user_id: 1, venue_id: rand(1..36), start_date: Date.yesterday, end_date: Date.tomorrow }
+  attributes = { user_id: User.first.id, venue_id: Venue.first.id, start_date: Date.yesterday, end_date: Date.tomorrow }
   booking = Booking.create!(attributes)
   puts "Created booking for #{booking.user.email} at #{booking.venue.name}"
 end
