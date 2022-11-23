@@ -1,6 +1,6 @@
 <nav class="navbar sticky-top navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><strong>AirVnP</strong></a>
+    <%= link_to "AirVnP", root_path, class: "navbar-brand" %>
     <ul class="nav justify-content-end">
     <li class="nav-item m-2">
     <% if user_signed_in? %>
