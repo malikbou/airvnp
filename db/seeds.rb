@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require_relative 'addresses/addresses.rb'
+include LondonAddresses
+
 
 puts "Cleaning database..."
 
@@ -50,12 +53,14 @@ venue6 = {name: "Aures London", address: "18 Leake St, London SE1 7NN", capacity
 end
 
 photo_id = 0
-30.times do
+addresses = LONDON.dup
 
-  attributes = {name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(5..30), image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false, user_id: User.first.id}
+30.times do
+  attributes = {name: Faker::Restaurant.name, address: addresses.sample, capacity: rand(5..30), image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false, user_id: User.first.id}
   venue = Venue.create!(attributes)
   puts "Created #{venue.name} with photo id #{photo_id}"
   photo_id += 1
+  addresses.delete(venue.address)
 end
 
 puts "Finished venues!"
