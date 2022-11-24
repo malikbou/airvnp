@@ -1,17 +1,24 @@
+<%= render "shared/banner" %>
+
 <div class="container-md col-md-4 col-md-offset-4">
   <h1 class="new-h1"><%= @venue.name %></h1>
-  <h4 class="new-h1"><%= @venue.address %></h1>
-  <h5 class="new-h1"><%= "Capacity: #{@venue.capacity} people" %></h1>
+  <h4 class="new-h1"><%= @venue.address %></h4>
+  <h5 class="new-h1"><%= "Capacity: #{@venue.capacity} people" %></h5>
+  <p class="new-h1"><%= "Description: #{@venue.description}" %></p>
   <%= image_tag(@venue.image_url, id: "img-list") %>
-  <%= simple_form_for [@venue, @booking] do |f| %>
-    <%= f.input :start_date, html5: true %>
-    <%= f.input :end_date, html5: true %>
-    <%= f.button :submit, value: "Book now", class: "btn btn-primary" %>
-  <% end %>
   <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+    <% if user_signed_in? && current_user.id == @venue.user_id %>
+      <%= link_to "Edit Your Venue", edit_venue_path, class: "btn btn-secondary" %>
+      <%= link_to "Delete Your Venue", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    <% else %>
+      <%= simple_form_for [@venue, @booking] do |f| %>
+      <%= f.input :start_date, html5: true %>
+      <%= f.input :end_date, html5: true %>
+      <%= f.button :submit, value: "Book now", class: "btn btn-primary" %>
+    <% end %>
+  <% end %>
   <%= link_to "Back to Venues", venues_path %>
 </div>
