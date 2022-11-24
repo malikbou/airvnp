@@ -2,7 +2,11 @@ class VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
   def index
-    @venues = Venue.all
+    if params[:query].present?
+      @venues = Venue.search_by_name_address_description_category(params[:query])
+    else
+      @venues = Venue.all
+    end
   end
 
   def new
@@ -12,6 +16,12 @@ class VenuesController < ApplicationController
   def show
     @booking = Booking.new
     @venue = Venue.find(params[:id])
+    @markers = {
+          lat: @venue.latitude,
+          lng: @venue.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {venue: @venue}),
+          image_url: helpers.asset_url("pin.png")
+        }
   end
 
   def create
@@ -32,6 +42,12 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @venue.update(venue_params)
     redirect_to venue_path(@venue)
+  end
+
+  def destroy
+    @venue = Venue.find(params[:id])
+    @venue.destroy
+    redirect_to venues_path, status: :see_other
   end
 
   private
