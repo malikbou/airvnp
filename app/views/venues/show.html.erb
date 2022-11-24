@@ -4,7 +4,6 @@
   <h1 class="new-h1"><%= @venue.name %></h1>
   <h4 class="new-h1"><%= @venue.address %></h4>
   <h5 class="new-h1"><%= "Capacity: #{@venue.capacity} people" %></h5>
-  <p class="new-h1"><%= "Description: #{@venue.description}" %></p>
   <%= image_tag(@venue.image_url, id: "img-list") %>
   <div style="width: 100%; height: 600px;"
   data-controller="map"
