@@ -7,6 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 require 'faker'
+require_relative 'addresses/addresses.rb'
+include LondonAddresses
 
 puts "Cleaning database..."
 
@@ -43,7 +45,7 @@ venue1 = { name: "The Old Qeens Head", address: "44 Essex Rd, London N1 8LN", ca
 venue2 = { name: "The Albion", address: "10 Thornhill Rd, London N1 1HW", capacity: rand(10..200),
            image_url: "https://images.otstatic.com/prod1/48262363/2/huge.jpg", booked: false,
            description: "For Albions or albinos or Albanians", category: "Al Bion", pricing: rand(0..1000), user_id: User.first.id}
-venue3 = { name: "Sessions Arts Club", address: "Old Sessions House, 24 Clerkenwell Grn, London EC1R 0NA", capacity: rand(10..200),
+venue3 = { name: "Sessions Arts Club", address: "24 Clerkenwell Grn, London EC1R 0NA", capacity: rand(10..200),
            image_url: "https://www.hot-dinners.com/images/stories/blog/2021/sessions/room1.jpg", booked: false,
            description: "Arts Club Gallery", category: "Gallery", pricing: rand(0..1000), user_id: User.first.id}
 venue4 = { name: "Hackney Town Hall", address: "Mare St, London E8 1EA", capacity: rand(10..200),
@@ -64,13 +66,16 @@ venue6 = { name: "Aures London", address: "18 Leake St, London SE1 7NN", capacit
 end
 
 photo_id = 0
+addresses = LONDON.dup
+
 30.times do
-  attributes = { name: Faker::Restaurant.name, address: Faker::Address.full_address, capacity: rand(10..200),
+  attributes = { name: Faker::Restaurant.name, address: addresses.sample, capacity: rand(10..200),
                  image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false,
                  description: Faker::Restaurant.description, category: Faker::Restaurant.type, pricing: Faker::Commerce.price(range: 0..1000.00), user_id: User.first.id}
   venue = Venue.create!(attributes)
   puts "Created #{venue.name} with photo id #{photo_id}"
   photo_id += 1
+  addresses.delete(venue.address)
 end
 
 puts "Finished venues!"

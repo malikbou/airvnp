@@ -8,5 +8,10 @@
     <%= f.input :end_date, html5: true %>
     <%= f.button :submit, value: "Book now", class: "btn btn-primary" %>
   <% end %>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
   <%= link_to "Back to Venues", venues_path %>
 </div>

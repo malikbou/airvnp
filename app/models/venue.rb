@@ -4,6 +4,7 @@ class Venue < ApplicationRecord
 
   validates :name, :address, :capacity, :image_url, :description, :category, :pricing, presence: true
   validates :capacity, numericality: { only_integer: true }
+
   validates :pricing, numericality: true
 
   include PgSearch::Model
@@ -13,4 +14,7 @@ class Venue < ApplicationRecord
                     tsearch: { prefix: true }
                   }
   # multisearchable against: [:name, :address, :capacity]
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
