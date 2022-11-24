@@ -42,3 +42,17 @@
                </div>
             </div>
          </section>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+  <% @venues.each do |venue| %>
+    <div class="col">
+      <div class="card">
+        <%= link_to image_tag(venue.image_url, id: "img-list"), venue_path(venue) %>
+        <div class="card-body">
+          <h5><strong> <%= link_to venue.name, venue_path(venue) %> </strong></h5>
+          <p><%= "Capacity: #{venue.capacity} people" %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
