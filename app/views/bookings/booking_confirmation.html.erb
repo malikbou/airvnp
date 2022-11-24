@@ -1,0 +1,17 @@
+<%= render "shared/banner" %>
+
+<div class="container">
+<h3><strong><%= "🎉 #{@booking.user.email.capitalize}, your booking at #{@booking.venue.name} is confirmed! 🎉 " %></strong></h3>
+<h5>Booking info:</h5>
+<ul>
+  <li><%= "Start Time: #{@booking.start_date}" %></li>
+  <li><%= "End Time: #{@booking.end_date}" %></li>
+  <li><%= "Address: #{@booking.venue.address}" %></li>
+</ul>
+  <div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+<%= link_to "My bookings", my_bookings_path %>
+</div>

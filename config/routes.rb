@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:new, :create, :destroy]
   end
-  get "my_booking", to: "bookings#my_booking"
+  get "booking_confirmation/:id", to: "bookings#booking_confirmation", as: :booking_confirmation
+  get "my_bookings", to: "bookings#my_bookings"
 end

@@ -1,0 +1,23 @@
+<%= render "shared/banner" %>
+
+<div class="container">
+<h3><strong>My Bookings</strong></h3>
+
+<div class="list-group">
+  <% if @bookings.empty? %>
+    <h5>You have not made any bookings yet!</h5>
+    <%= link_to "Book a venue", venues_path %>
+  <% else %>
+    <% @bookings.each do |booking| %>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start m-1">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%=booking.venue.name%></h5>
+        <small><%=booking.start_date%></small>
+      </div>
+      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+      <small>Donec id elit non mi porta.</small>
+    </a>
+    <% end %>
+  <% end %>
+</div>
+</div>
