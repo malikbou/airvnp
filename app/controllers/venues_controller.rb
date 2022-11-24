@@ -3,6 +3,7 @@ class VenuesController < ApplicationController
 
   def index
     @venues = Venue.all
+
   end
 
   def new
@@ -12,6 +13,12 @@ class VenuesController < ApplicationController
   def show
     @booking = Booking.new
     @venue = Venue.find(params[:id])
+    @markers = {
+          lat: @venue.latitude,
+          lng: @venue.longitude,
+          info_window: render_to_string(partial: "info_window", locals: {venue: @venue}),
+          image_url: helpers.asset_url("pin.png")
+        }
   end
 
   def create
