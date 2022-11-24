@@ -2,8 +2,11 @@ class VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
   def index
-    @venues = Venue.all
-
+    if params[:query].present?
+      @venues = Venue.search_by_name_address_description_category(params[:query])
+    else
+      @venues = Venue.all
+    end
   end
 
   def new
