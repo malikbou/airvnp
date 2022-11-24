@@ -44,6 +44,12 @@ class VenuesController < ApplicationController
     redirect_to venue_path(@venue)
   end
 
+  def destroy
+    @venue = Venue.find(params[:id])
+    @venue.destroy
+    redirect_to venues_path, status: :see_other
+  end
+
   private
 
   def set_venue
