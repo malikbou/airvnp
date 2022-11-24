@@ -13,10 +13,10 @@
 }
 
 .container-title {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 0.65) 100%),
-  url("https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80");
   height: 80vh;
   width: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 100%, rgba(0, 0, 0, 0) 100%, rgba(0, 0, 0, 0.65) 100%),
+  url("https://www.uniquevenues.com/sites/uniquevenues.com/files/iStock-945129070_copy.jpg") ;
   // max-height: 800px;
   // max-width: 1280px;
   // min-height: 600px;
@@ -26,6 +26,7 @@
   align-items: center;
   margin: 0 auto;
   background-size: cover;
+  // opacity: 0.5;
 }
 
 .container-box {
@@ -58,4 +59,79 @@
 
 .icon-home {
   font-size: 25px;
+}
+
+.title-subtitle {
+  margin: auto;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  // padding: 3rem 3rem 3rem 160px;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.title1 {
+  font-size: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.subtitle1 {
+  font-size: 25px;
+}
+
+.h1-reserve {
+ font-size: 55px;
+ text-align: center;
+ color: #D9E4C8;
+//  font-weight: bold;
+ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+// .p {
+//   color: #415D43;
+//   font-size: 25px;
+//   text-shadow: rgb(75, 75, 75) 1px 0 10px;
+// }
+
+.card {
+  box-sizing: border-box;
+  // padding: 3px;
+  border-radius: 5px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: none;
+  width: 380px;
+  margin-left: 45px;
+}
+
+#img-list {
+  border-radius: 5px;
+}
+
+// .homepage-venues {
+//   margin: auto;
+//   align-items: center;
+// }
+
+.desc {
+  font-size: 20px;
+  // text-shadow: rgb(75, 75, 75) 1px 0 10px;
+  color:#ffffff;
+}
+
+.card-body {
+
+  h5 a {
+    text-decoration: none;
+    color: #415D43;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+    font-size: 25px;
+  }
+}
+
+.headerDivider {
+  border-right: 1px solid #16222c;
+  border-left: 1px solid #16222c;
 }

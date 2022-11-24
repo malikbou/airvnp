@@ -10,7 +10,7 @@
                         <h1 id="venues"><%= link_to "See All Venues", venues_path%></h1>
                       <% else %>
                         <h1 class="h1-reserve">Reserve a venue now!</h1>
-                        <p>Lorem ipsum dolor sit are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="desc">Lorem ipsum dolor sit are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                       <% end %>
                   </div>
                      <div class="input-line">
@@ -25,15 +25,21 @@
                      <p class="title">Birthday</p>
                   </div>
 
+                  <div class="headerDivider1"></div>
+
                   <div class="statistics-item">
                      <i class="fa-regular fa-heart"></i>
                      <p class="title">Wedding</p>
                   </div>
 
+                  <div class="headerDivider1"></div>
+
                   <div class="statistics-item">
                      <i class="fa-solid fa-person-chalkboard"></i>
                      <p class="title">Conference</p>
                   </div>
+
+                  <div class="headerDivider1"></div>
 
                   <div class="statistics-item">
                      <i class=" icon-home fa-solid fa-palette"></i>
@@ -43,14 +49,20 @@
             </div>
          </section>
 
-<div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+<div class="title-subtitle">
+  <h2 class="title1">Explore our top venues</h2>
+  <p class="subtitle1">London's most iconic spaces for meetings, conferences, parties, team offsites and more!</p>
+</div>
+
+<div class="homepage-venues row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
   <% @venues.each do |venue| %>
-    <div class="col">
+    <div class="col hello">
       <div class="card">
         <%= link_to image_tag(venue.image_url, id: "img-list"), venue_path(venue) %>
         <div class="card-body">
           <h5><strong> <%= link_to venue.name, venue_path(venue) %> </strong></h5>
-          <p><%= "Capacity: #{venue.capacity} people" %></p>
+          <p><i class="fa-solid fa-people-group"></i> <%= venue.capacity%> people</p>
+          <p><i class="fa-solid fa-sterling-sign"></i> per person </p>
         </div>
       </div>
     </div>
