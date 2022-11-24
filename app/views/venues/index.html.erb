@@ -2,6 +2,15 @@
 <div class="container">
 <h3><strong>All Venues</strong></h3>
 
+<%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a venue"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <p>Select a space from our amazing list of venues!</p>
 
 <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center">
@@ -12,10 +21,19 @@
         <div class="card-body">
           <h5><strong> <%= link_to venue.name, venue_path(venue) %> </strong></h5>
           <p><%= "Capacity: #{venue.capacity} people" %></p>
+          <p><%= "Category: #{venue.category}" %></p>
+            <% if venue.description.length > 30 %>
+              <%= truncate(venue.description, length: 30) %>
+              <%= link_to "Read more", venue_path(venue) %>
+            <% else %>
+              <%= venue.description %>
+            <% end %>
+          </p>
+          <p><%= "Price: £#{venue.pricing} per hour approx." %></p>
         </div>
       </div>
     </div>
-    <% end %>
+  <% end %>
 </div>
 
 <p><%= link_to "Back", root_path %></p>
