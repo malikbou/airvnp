@@ -71,7 +71,7 @@ addresses = LONDON.dup
 30.times do
   attributes = { name: Faker::Restaurant.name, address: addresses.sample, capacity: rand(10..200),
                  image_url: "https://source.unsplash.com/random/?Restaurants&#{photo_id}", booked: false,
-                 description: Faker::Restaurant.description, category: Faker::Restaurant.type, pricing: Faker::Commerce.price(range: 0..1000.00), user_id: User.first.id}
+                 description: Faker::Restaurant.description, category: Faker::Restaurant.type, pricing: rand(10..1000), user_id: User.first.id}
   venue = Venue.create!(attributes)
   puts "Created #{venue.name} with photo url: #{venue.image_url}"
   photo_id += 1
