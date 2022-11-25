@@ -1,6 +1,9 @@
 <%= render "shared/banner" %>
 <div class="container">
-<h3><strong>All Venues</strong></h3>
+
+<div class="d-flex justify-content-center mt-3">
+  <h2>Explore our list of fantastic venues for your event</h2>
+</div>
 
 <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
@@ -8,12 +11,10 @@
     class: "form-control",
     placeholder: "Find a venue"
   %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-primary m-2" %>
 <% end %>
 
-<p>Select a space from our amazing list of venues!</p>
-
-<div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center">
+<div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center mt-3">
   <% @venues.each do |venue| %>
     <div class="col">
       <div class="card">
