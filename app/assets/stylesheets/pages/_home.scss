@@ -152,6 +152,7 @@
 
 .index-button:hover {
   background-color: #8AAC8C;
+  color: white;
 }
 
 .button-i {
@@ -161,6 +162,29 @@
   padding: 50px;
   text-align: center
 }
+
+.read-more-link {
+  text-decoration: none;
+  color: #6B936E;
+}
+
+#venues {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
+  color: white;
+  text-decoration: underline;
+}
+
+#venues:hover {
+  color: #6B936E;
+}
+
+.welcome {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 150px;
+  text-align: center;
+}
+
 
 
 // margin: auto - By setting margin property to auto

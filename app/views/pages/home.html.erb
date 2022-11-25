@@ -7,7 +7,8 @@
                <div class="container-title">
                   <div class="hero-text align-center container-box">
                       <% if user_signed_in? %>
-                        <h1 id="venues"><%= link_to "See All Venues", venues_path%></h1>
+                        <h1 class="welcome">AirVnP</h1>
+                        <h2 id="venues"><%= link_to "See All Venues", venues_path, id: "venues"%></h2>
                       <% else %>
                         <h1 class="h1-reserve">Book a venue now!</h1>
                         <p class="desc">London has some of the greatest venues for you to hire. Be it a conference, wedding, or company-wide party, discover exactly what you need on AirVnP.</p>
@@ -25,21 +26,21 @@
                      <p class="title">Birthday</p>
                   </div>
 
-                  <div class="headerDivider1"></div>
+                  <div class="border" style="height:50px;"></div>
 
-                  <div class="statistics-item">
-                     <i class="fa-regular fa-heart"></i>
-                     <p class="title">Wedding</p>
+                  <div class="statistics-item" >
+                      <i class="fa-regular fa-heart"></i>
+                      <p class="title">Wedding</p>
                   </div>
 
-                  <div class="headerDivider1"></div>
+                  <div class="border" style="height:50px;"></div>
 
                   <div class="statistics-item">
                      <i class="fa-solid fa-person-chalkboard"></i>
                      <p class="title">Conference</p>
                   </div>
 
-                  <div class="headerDivider1"></div>
+                  <div class="border" style="height:50px;"></div>
 
                   <div class="statistics-item">
                      <i class=" icon-home fa-solid fa-palette"></i>
@@ -56,13 +57,21 @@
 
 <div class="homepage-venues row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
   <% @venues.each do |venue| %>
-    <div class="col hello">
+    <div class="col">
       <div class="card">
         <%= link_to image_tag(venue.image_url, id: "img-list"), venue_path(venue) %>
         <div class="card-body">
           <h5><strong> <%= link_to venue.name, venue_path(venue) %> </strong></h5>
-          <p><i class="fa-solid fa-people-group"></i> <%= venue.capacity%> people</p>
-          <p><i class="fa-solid fa-sterling-sign"></i> per person </p>
+          <p><%= "Capacity: #{venue.capacity} people" %></p>
+          <p><%= "Category: #{venue.category}" %></p>
+            <% if venue.description.length > 30 %>
+              <%= truncate(venue.description, length: 30) %>
+              <%= link_to "Read more", venue_path(venue), class: "read-more-link" %>
+            <% else %>
+              <%= venue.description %>
+            <% end %>
+          </p>
+          <p><%= "Price: £#{venue.pricing} per hour." %></p>
         </div>
       </div>
     </div>
