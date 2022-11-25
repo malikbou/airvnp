@@ -9,8 +9,8 @@
                       <% if user_signed_in? %>
                         <h1 id="venues"><%= link_to "See All Venues", venues_path%></h1>
                       <% else %>
-                        <h1 class="h1-reserve">Reserve a venue now!</h1>
-                        <p class="desc">Lorem ipsum dolor sit are dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h1 class="h1-reserve">Book a venue now!</h1>
+                        <p class="desc">London has some of the greatest venues for you to hire. Be it a conference, wedding, or company-wide party, discover exactly what you need on AirVnP.</p>
                       <% end %>
                   </div>
                      <div class="input-line">
@@ -67,4 +67,8 @@
       </div>
     </div>
     <% end %>
+</div>
+
+<div class="button-i">
+  <a class="index-button" href="/venues">See all venues</a>
 </div>

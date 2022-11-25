@@ -118,6 +118,7 @@
   font-size: 20px;
   // text-shadow: rgb(75, 75, 75) 1px 0 10px;
   color:#ffffff;
+  text-align: center;
 }
 
 .card-body {
@@ -135,3 +136,34 @@
   border-right: 1px solid #16222c;
   border-left: 1px solid #16222c;
 }
+
+.index-button {
+  background-color: #415D43;
+  border: none;
+  color: white;
+  padding: 16px 33px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 30px;
+  transition-duration: 0.4s;
+}
+
+.index-button:hover {
+  background-color: #8AAC8C;
+}
+
+.button-i {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 50px;
+  text-align: center
+}
+
+
+// margin: auto - By setting margin property to auto
+// position: fixed - By setting position property to fixed
+// display: flex - By setting the display property to flex
+// display: grid -
