@@ -96,6 +96,7 @@
 // }
 
 .card {
+  margin: auto;
   box-sizing: border-box;
   // padding: 3px;
   border-radius: 5px;
@@ -108,10 +109,10 @@
   border-radius: 5px;
 }
 
-// .homepage-venues {
-//   margin: auto;
-//   align-items: center;
-// }
+.homepage-venues {
+  margin: auto;
+  // align-items: center;
+}
 
 .desc {
   font-size: 20px;
