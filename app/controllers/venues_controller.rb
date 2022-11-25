@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
   before_action :set_venue, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     if params[:query].present?
@@ -61,6 +62,6 @@ class VenuesController < ApplicationController
   end
 
   def venue_params
-    params.require(:venue).permit(:name, :address, :capacity, :image_url, booked: false)
+    params.require(:venue).permit(:name, :address, :capacity, :image_url, :description, :category, :pricing, booked: false)
   end
 end
