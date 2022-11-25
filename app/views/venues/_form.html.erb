@@ -5,7 +5,9 @@
     <%= f.input :name, { placeholder: "Venue name"} %>
     <%= f.input :address, { placeholder: "Venue address"} %>
     <%= f.input :capacity, { placeholder: "Maximum guests"} %>
-    <%= f.input :image_url, label: "Photos"  %>
+    <%= f.input :pricing, { placeholder: "Hire fee per hour"} %>
+    <%= f.input :description, { placeholder: "Tell us about your venue!"} %>
+    <%= f.input :image_url, label: "Photos" %>
     <%= f.submit "Submit", class: "btn btn-primary w-100 btn-submit" %>
   <% end %>
 </div>
