@@ -3,9 +3,8 @@ class Venue < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :name, :address, :capacity, :image_url, :description, :category, :pricing, presence: true
-  validates :capacity, numericality: { only_integer: true }
+  validates :capacity, :pricing, numericality: { only_integer: true }
 
-  validates :pricing, numericality: true
 
   include PgSearch::Model
   pg_search_scope :search_by_name_address_description_category,
