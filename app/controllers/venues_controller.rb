@@ -13,6 +13,10 @@ class VenuesController < ApplicationController
     @venue = Venue.new
   end
 
+  def my_venues
+    @venues = Venue.where(user_id: current_user.id)
+  end
+
   def show
     @booking = Booking.new
     @venue = Venue.find(params[:id])

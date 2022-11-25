@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   get "booking_confirmation/:id", to: "bookings#booking_confirmation", as: :booking_confirmation
   get "my_bookings", to: "bookings#my_bookings"
+
+  get "my_venues", to: "venues#my_venues"
 end
