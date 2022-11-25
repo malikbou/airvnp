@@ -7,6 +7,13 @@
   justify-content: center;
 }
 
+.devise-form {
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
 .form-control {
   border-radius: 5px;
 }
@@ -30,9 +37,8 @@
  justify-content: center;
 }
 
-.btn.btn-primary {
+.btn {
   align-items: center;
-  font-weight: 700;
   border-radius: 30px;
   margin-top: 1em;
   width: 150px;
