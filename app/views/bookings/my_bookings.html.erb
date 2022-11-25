@@ -15,7 +15,14 @@
         <h2><%=booking.venue.name%></h2>
         <h5><small> <%= "Booking Date: #{booking.start_date.strftime('%m/%d/%Y')} at #{booking.start_date.strftime('%I:%M%p')}" %></small></h5>
         <h5><small> <%= "Until: #{booking.end_date.strftime('%m/%d/%Y')} at #{booking.end_date.strftime('%I:%M%p')}" %></small></h5>
-        <p><%=booking.venue.description%></p>
+        <% if booking.venue.description.length > 600 %>
+          <p>
+            <%= truncate(booking.venue.description, length: 600) %>
+            <%= link_to "Read more", venue_path(booking.venue)%>
+          </p>
+        <% else %>
+          <p><%= booking.venue.description %></p>
+        <% end %>
       </div>
     </div>
     <% end %>
