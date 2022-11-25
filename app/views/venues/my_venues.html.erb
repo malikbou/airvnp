@@ -1,0 +1,30 @@
+<%= render "shared/banner" %>
+
+<div class="container">
+
+<div class="list-group">
+  <% if @venues.empty? %>
+    <h3><strong>You have not added a venue yet!</strong></h3>
+    <%= link_to "Create a venue", new_venue_path, class: "btn btn-primary" %>
+  <% else %>
+    <h3><strong>My Venues</strong></h3>
+    <% @venues.each do |venue| %>
+    <div class="card-product m-2">
+      <%= link_to image_tag(venue.image_url), venue_path(venue)%>
+      <div class="card-product-infos">
+        <h2><%= link_to venue.name, venue_path(venue)%></h2>
+        <h5><small> <%= "Capacity: #{venue.capacity}" %></small></h5>
+        <% if venue.description.length > 600 %>
+          <p>
+            <%= truncate(venue.description, length: 600) %>
+            <%= link_to "Read more", venue_path(venue)%>
+          </p>
+        <% else %>
+          <p><%= venue.description %></p>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+</div>

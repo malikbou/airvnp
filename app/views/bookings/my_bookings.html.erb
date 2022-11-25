@@ -9,14 +9,15 @@
     <%= link_to "Book a venue", venues_path %>
   <% else %>
     <% @bookings.each do |booking| %>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start m-1">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1"><%=booking.venue.name%></h5>
-        <small><%=booking.start_date%></small>
+    <div class="card-product m-2">
+      <%= image_tag(booking.venue.image_url) %>
+      <div class="card-product-infos">
+        <h2><%=booking.venue.name%></h2>
+        <h5><small> <%= "Booking Date: #{booking.start_date.strftime('%m/%d/%Y')} at #{booking.start_date.strftime('%I:%M%p')}" %></small></h5>
+        <h5><small> <%= "Until: #{booking.end_date.strftime('%m/%d/%Y')} at #{booking.end_date.strftime('%I:%M%p')}" %></small></h5>
+        <p><%=booking.venue.description%></p>
       </div>
-      <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-      <small>Donec id elit non mi porta.</small>
-    </a>
+    </div>
     <% end %>
   <% end %>
 </div>

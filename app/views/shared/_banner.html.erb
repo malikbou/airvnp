@@ -2,16 +2,27 @@
   <div class="container-fluid">
     <%= link_to "AirVnP", root_path, class: "navbar-brand" %>
     <ul class="nav justify-content-end">
-    <li class="nav-item m-2">
-    <% if user_signed_in? %>
-      <%= link_to "Create Venue", new_venue_path,
-        class: "btn btn-primary" %>
-      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete},
-        class: "btn btn-secondary" %>
-    <% else %>
-      <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
-    <% end %>
-    </li>
+      <li class="nav-item m-2">
+        <% if user_signed_in? %>
+          <%= link_to "Create Venue", new_venue_path,
+            class: "btn btn-primary" %>
+          <li class="nav-item m-2">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"><%= link_to "See my bookings", my_bookings_path %></a></li>
+                <li><a class="dropdown-item" href="#"><%= link_to "See my venues", my_venues_path %></a></li>
+                <li><a class="dropdown-item" href="#"><%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}%></a></li>
+              </ul>
+            </div>
+          </li>
+        <% else %>
+          <%= link_to "Log in", user_session_path, class: "btn btn-primary" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary" %>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>
