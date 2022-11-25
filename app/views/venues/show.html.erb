@@ -1,23 +1,34 @@
 <%= render "shared/banner" %>
 
-<div class="container-md col-md-4 col-md-offset-4">
-  <h1 class="new-h1"><%= @venue.name %></h1>
-  <h4 class="new-h1"><%= @venue.address %></h4>
-  <h5 class="new-h1"><%= "Capacity: #{@venue.capacity} people" %></h5>
-  <%= image_tag(@venue.image_url, id: "img-list") %>
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="container">
+<div class="venue-description">
+    <h1 class="new-h1"><%= @venue.name %></h1>
+    <h4 class="new-h1"><%= @venue.address %></h4>
+    <h5 class="new-h1"><%= "Capacity: #{@venue.capacity} people" %></h5>
+    </div>
+  <div class="d-flex">
+    <div class="show-card">
+      <%= image_tag(@venue.image_url, id: "img-list") %>
+    </div>
+    <div class="show-card" style="width: 100%; height: 350px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+    <div class="edit-delete">
     <% if user_signed_in? && current_user.id == @venue.user_id %>
       <%= link_to "Edit Your Venue", edit_venue_path, class: "btn btn-secondary" %>
       <%= link_to "Delete Your Venue", venue_path(@venue), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
     <% else %>
       <%= simple_form_for [@venue, @booking] do |f| %>
-      <%= f.input :start_date, html5: true %>
-      <%= f.input :end_date, html5: true %>
-      <%= f.button :submit, value: "Book now", class: "btn btn-primary" %>
+        <%= f.input :start_date, html5: true %>
+        <%= f.input :end_date, html5: true %>
+        <%= f.button :submit, value: "Book now", class: "btn btn-primary" %>
+      <% end %>
     <% end %>
-  <% end %>
-  <%= link_to "Back to Venues", venues_path %>
+    </div>
+    <div class="back">
+    <%= link_to "Back to Venues", venues_path %>
+  </div>
 </div>
